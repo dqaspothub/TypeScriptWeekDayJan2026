@@ -18,16 +18,13 @@ var isValid = false;
 
 console.log(typeof isValid)
 
-
 var firstName ; // Declaration
 
 console.log(typeof firstName)
 
-
 firstName = "Kannathasan"; // Initialization
 
 console.log(typeof firstName)
-
 
 var middelName; // If there is no value for a particular variable
 

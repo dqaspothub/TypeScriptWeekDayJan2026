@@ -1,0 +1,46 @@
+Scope & Hoisting in JavaScript(var vs let vs const)
+
+What is Scope? 
+
+Scope defines where a variable can be accessed in your code.
+
+📌 Think of scope as visibility of a variable.
+
+Types of Scope in JavaScript
+
+Global Scope
+Function Scope
+Block Scope
+
+Scope Differences
+
+🔴 var – Function Scope
+
+var is NOT block-scoped.
+
+if (true) {
+  var x = 10;
+}
+console.log(x); // ✅ 10
+
+➡️ Even though x is inside {}, it is accessible outside.
+
+----------------------------------------------
+
+🟢 let – Block Scope
+if (true) {
+  let y = 20;
+}
+console.log(y); // ❌ Error
+
+➡️ y exists only inside the block {}
+
+----------------------------------------------
+
+🔵 const – Block Scope
+if (true) {
+  const z = 30;
+}
+console.log(z); // ❌ Error
+
+➡️ Same as let, but value cannot change.

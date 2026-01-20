@@ -1,0 +1,134 @@
+A variable is like a labeled container that stores data.
+
+What Are Naming Conventions?
+
+They are rules & best practices for naming variables so code is:
+
+✔ Readable
+✔ Maintainable
+✔ Professional
+
+🔹 Allowed Variable Names
+
+✔ Letters
+✔ Numbers (not at start)
+✔ _ underscore
+✔ $ dollar sign
+
+let userName;
+let user_name;
+let user1;
+let $price;
+
+❌ Invalid Variable Names
+
+let 1name;      // ❌ starts with number
+let user-name; // ❌ hyphen not allowed
+let let;       // ❌ reserved keyword
+
+A box labeled Age contains 30
+A box labeled Name contains "dqaspothub"
+
+In JavaScript:
+
+let age = 30;
+let name = "dqaspothub";
+
+age → variable name
+= → assignment operator
+25 → value
+
+-----------------------------------
+JavaScript Naming Style (camelCase)
+
+JavaScript follows camelCase.
+
+Example:
+let firstName = "dqaspothub";
+let totalPrice = 500;
+let isLoggedIn = true;
+
+
+📌 Rule:
+
+First word → lowercase
+Next words → Capitalized
+
+-----------------------------------
+Constant Naming Convention
+
+Use UPPERCASE with underscore.
+
+const PI = 3.14;
+const MAX_LIMIT = 100;
+
+-----------------------------------
+
+Primitive Types:
+
+Number
+String
+Boolean
+Undefined
+Null
+
+------------------------------------
+
+Example
+
+let age = 30;          // Number
+let name = "dqaspothub";    // String
+let isActive = true;  // Boolean
+let x;                // Undefined
+let y = null;         // Null
+
+-----------------------------------
+
+Imagine a form with a field:
+
+Middle Name: ______
+
+let middleName;
+console.log(middleName);
+
+You haven’t filled it yet.
+The field exists, but no value is given
+That is UNDEFINED
+
+-------------------------------------
+Another example:
+
+You order a parcel, but:
+The parcel exists
+Tracking number is not assigned yet
+
+➡️ Tracking number = undefined
+
+✔ Variable is declared
+❌ Value is not assigned
+
+---------------------------------------
+
+Null – “There is intentionally nothing”
+Real-life example:
+
+Same form:
+
+Middle Name: N/A (Not Applicable)
+You deliberately say:
+
+“I don’t have a middle name”
+
+➡️ This is NULL
+
+Another example:
+
+You had a bank account:
+Account existed
+
+You closed it intentionally
+
+➡️ Account value = null
+
+let middleName = null;
+console.log(middleName);

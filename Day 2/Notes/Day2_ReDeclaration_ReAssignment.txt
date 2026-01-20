@@ -1,0 +1,59 @@
+var vs let vs const - Redeclaration & Reassignment
+
+var
+
+✅ Redeclaration → ALLOWED
+
+var a = 10;
+var a = 20;   // ✅ No error
+
+✅ Reassignment → ALLOWED
+
+var a = 10;
+a = 30;       // ✅ Allowed
+
+👉 Summary for var
+
+Can declare same variable again
+Can change value anytime
+Causes confusion & bugs
+
+📌 Reason why var is not recommended
+
+------------------------------------------------
+let
+
+❌ Redeclaration → NOT ALLOWED
+let b = 10;
+let b = 20;   // ❌ Error
+
+✅ Reassignment → ALLOWED
+let b = 10;
+b = 25;       // ✅ Allowed
+
+👉 Summary for let
+
+Can declare only once
+Can change value
+Most commonly used
+
+📌 Use let when value needs to change
+
+----------------------------------------------
+const
+
+❌ Redeclaration → NOT ALLOWED
+const c = 10;
+const c = 20;   // ❌ Error
+
+❌ Reassignment → NOT ALLOWED
+const c = 10;
+c = 50;         // ❌ Error
+
+👉 Summary for const
+
+Declare once
+Value is fixed
+Best for constants
+
+📌 Use const when value should never change
