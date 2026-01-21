@@ -1,0 +1,36 @@
+What is Hoisting?
+
+Hoisting is JavaScript behavior where variable declarations are moved to the top of their scope before code execution.
+
+📌 Only declarations are hoisted, not assignments
+
+Hoisting with var
+console.log(a); // ✅ undefined
+var a = 10;
+
+JavaScript treats it like:
+
+var a;
+console.log(a);
+a = 10;
+
+✔ var is hoisted
+✔ Initialized as undefined
+
+--------------------------------------------------
+Hoisting with let
+console.log(b); // ❌ Error
+let b = 20;
+
+➡️ let is hoisted but not initialized
+
+📌 This phase is called Temporal Dead Zone (TDZ) - (Time between variable creation and initialization where accessing it causes an error.)
+
+-------------------------------------------------
+
+Hoisting with const
+console.log(c); // ❌ Error
+const c = 30;
+
+➡️ Same as let
+➡️ Must be initialized at declaration

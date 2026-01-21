@@ -1,0 +1,43 @@
+Operators in JavaScript
+
+What is an Operator?
+
+An operator is a symbol used to perform operations on values or variables.
+
+Example:
+
+let sum = 10 + 5;
+
++ → operator
+10, 5 → operands
+
+Arithmetic Operators
+
+Used for mathematical calculations.
+
+| Operator | Meaning             | Example       |
+| -------- | ------------------- | ------------- |
+| `+`      | Addition            | `10 + 5 = 15` |
+| `-`      | Subtraction         | `10 - 5 = 5`  |
+| `*`      | Multiplication      | `10 * 5 = 50` |
+| `/`      | Division            | `10 / 5 = 2`  |
+| `%`      | Modulus (remainder) | `10 % 3 = 1`  |
+| `++`     | Increment           | `a++`         |
+| `--`     | Decrement           | `a--`         |
+
+Assignment Operators
+
+Used to assign values.
+
+| Operator | Example  | Meaning   |
+| -------- | -------- | --------- |
+| `=`      | `x = 10` | Assign    |
+| `+=`     | `x += 5` | x = x + 5 |
+| `-=`     | `x -= 5` | x = x - 5 |
+| `*=`     | `x *= 5` | x = x * 5 |
+| `/=`     | `x /= 5` | x = x / 5 |
+
+
+let sum = 0;
+
+sum += 10; // sum = sum + 10;
