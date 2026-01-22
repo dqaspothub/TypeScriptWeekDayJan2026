@@ -1,0 +1,123 @@
+Conditional Statements in JavaScript
+
+Conditional statements are used to make decisions in a program.
+They allow the code to execute different blocks based on whether a condition is true or false.
+
+🔹 How Conditions Work Internally
+
+JavaScript evaluates the condition
+
+The condition is converted to boolean
+
+If true → execute block
+If false → skip block or execute else
+
+
+if Statement
+
+Syntax
+
+if (condition) {
+  // executes if condition is true
+}
+
+if–else Statement
+
+Syntax
+
+if (condition) {
+  // true block
+} else {
+  // false block
+}
+
+
+let age = 20;
+
+if (age >= 18) {
+  console.log("Eligible to vote");
+}
+
+✔ Condition: age >= 18 → true
+✔ Block executes
+
+let marks = 45;
+
+if (marks >= 50) {
+  console.log("Pass");
+} else {
+  console.log("Fail");
+}
+
+else if Ladder
+
+Used when multiple conditions need to be checked.
+
+Syntax
+if (condition1) {
+} else if (condition2) {
+} else {
+}
+
+
+let score = 82;
+
+if (score >= 90) {
+  console.log("Grade A");
+} else if (score >= 75) {
+  console.log("Grade B");
+} else if (score >= 50) {
+  console.log("Grade C");
+} else {
+  console.log("Fail");
+}
+
+JavaScript checks top to bottom and executes the first true condition
+
+Nested if Statement
+
+An if inside another if.
+
+Example
+let age = 25;
+let hasLicense = true;
+
+if (age >= 18) {
+  if (hasLicense) {
+    console.log("Can drive");
+  } else {
+    console.log("License required");
+  }
+}
+
+switch Statement
+
+Used when a variable is compared against multiple fixed values.
+
+Syntax
+switch (expression) {
+  case value1:
+    break;
+  case value2:
+    break;
+  default:
+}
+
+
+let day = 3;
+
+switch (day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  default:
+    console.log("Invalid day");
+}
+
+⚠️ break prevents fall-through

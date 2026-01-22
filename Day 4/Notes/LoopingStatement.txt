@@ -1,0 +1,131 @@
+🔁 Looping in JavaScript
+
+Loops are used to execute a block of code repeatedly until a specified condition becomes false.
+
+🔹 Why Loops Are Needed
+
+Without loops:
+
+console.log(1);
+console.log(2);
+console.log(3);
+
+
+With loops:
+
+for (let i = 1; i <= 3; i++) {
+  console.log(i);
+}
+
+
+✔ Less code
+✔ Easy maintenance
+✔ Dynamic execution
+
+How Loop Works Internally
+
+Initialization → starting point
+
+Condition check → true or false
+
+Execution → loop body runs
+
+Update → increment / decrement
+
+Repeat until condition becomes false
+
+
+for Loop (Most Common)
+Syntax
+for (initialization; condition; update) {
+  // code to repeat
+}
+
+Example
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+
+Internal Flow
+i = 1 → 1 <= 5 → print 1
+i = 2 → 2 <= 5 → print 2
+...
+i = 6 → condition false → stop
+
+2️⃣ while Loop
+
+Used when number of iterations is not known beforehand.
+
+Syntax
+while (condition) {
+  // code
+}
+
+Example
+let count = 1;
+
+while (count <= 3) {
+  console.log(count);
+  count++;
+}
+
+
+⚠️ Condition must change to avoid infinite loop
+
+
+3️⃣ do...while Loop
+
+Executes at least once, even if condition is false.
+
+Syntax
+do {
+  // code
+} while (condition);
+
+Example
+let num = 5;
+
+do {
+  console.log(num);
+} while (num < 3);
+
+
+✔ Output: 5 (runs once)
+
+4️⃣ for...of Loop
+
+Used to iterate over values of iterable objects (arrays, strings).
+
+Example (Array)
+let colors = ["Red", "Green", "Blue"];
+
+for (let color of colors) {
+  console.log(color);
+}
+
+5️⃣ for...in Loop
+
+Used to iterate over keys (indexes / properties).
+
+Example (Object)
+let user = {
+  name: "Raj",
+  age: 25
+};
+
+for (let key in user) {
+  console.log(key + ": " + user[key]);
+}
+
+6️⃣ break and continue
+break → Exit loop
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) break;
+  console.log(i);
+}
+
+continue → Skip current iteration
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
