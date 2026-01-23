@@ -1,15 +1,17 @@
-for (let i = 1; i <= 5; i++) {
-  console.log(i);
+
+let water;  // Declaration
+
+for (water=7; water >= 0; --water) {
+  console.log(water);
 }
 
 
-let count = 1;
+let battery = 5;
 
-while (count <= 3) {
-  console.log(count);
-  count++;
+while (battery<100){
+  console.log("Charging...");
+  battery +=10;
 }
-
 
 let num = 5;
 
@@ -18,36 +20,43 @@ do {
 } while (num < 3);
 
 
+let cash = 25;
+
+do {
+console.log("buy at least one product");
+cash -=50  //cash = cash - 50
+
+} while(cash>0);
+
+
 let colors = ["Red", "Green", "Blue"];
 
-for (let color of colors) {
-  console.log(color);
+
+for (let c of colors) {
+  console.log(c);
 }
 
+let values = [5,6,7];
 
-let user = {
-  name: "Anil",
-  age: 24
-};
 
-for (let key in user) {
-  console.log(key + ": " + user[key]);
+for (let num of values) {
+  console.log(num);
 }
 
+console.log("********************");
 
 for (let i = 1; i <= 5; i++) {
-  if (i === 3) break;
-  console.log(i);
-}
-
-for (let i = 1; i <= 5; i++) {
-  if (i === 3) continue;
+  if (i === 3) 
+    break;
   console.log(i);
 }
 
 
-for (let i = 1; i <= 10; i++) {
-  if (i % 2 === 0) {
-    console.log(i);
-  }
+console.log("********************");
+
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) 
+    continue;
+  console.log(i);
 }
+console.log("********************");
