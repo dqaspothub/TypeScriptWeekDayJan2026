@@ -1,0 +1,207 @@
+# 1️⃣ What is a Function in JavaScript?
+
+A **function** is a block of code designed to perform a **specific task**.
+You can **call** the function whenever you need it, which avoids writing repetitive code.
+
+**Why use functions?**
+
+* Reusability ✅
+* Organization ✅
+* Easier to debug ✅
+* Modular code ✅
+
+---
+
+# 2️⃣ Function Syntax
+
+### 1. **Function Declaration**
+
+```javascript
+function greet() {
+    console.log("Hello, welcome!");
+}
+```
+
+### 2. **Function Call**
+
+```javascript
+greet(); // Calls the function
+```
+
+📌 Output:
+
+```
+Hello, welcome!
+```
+
+---
+
+# 3️⃣ Function with Parameters
+
+You can pass **values** to a function using **parameters**.
+
+```javascript
+function greetUser(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greetUser("Alex");
+greetUser("John");
+```
+
+📌 Output:
+
+```
+Hello, Alex!
+Hello, John!
+```
+
+---
+
+# 4️⃣ Function with Return Value
+
+A function can **return a value** using the `return` keyword.
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+
+let sum = add(5, 3);
+console.log("Sum is:", sum);
+```
+
+📌 Output:
+
+```
+Sum is: 8
+```
+
+---
+
+# 5️⃣ Function Expressions
+
+You can **store a function in a variable**.
+
+```javascript
+const multiply = function(x, y) {
+    return x * y;
+};
+
+console.log("Multiply:", multiply(4, 5));
+```
+
+📌 Output:
+
+```
+Multiply: 20
+```
+
+---
+
+# 6️⃣ Arrow Functions (ES6)
+
+Arrow functions are **shorter syntax** for function expressions.
+
+```javascript
+const divide = (a, b) => a / b;
+
+console.log("Divide:", divide(10, 2));
+```
+
+📌 Output:
+
+```
+Divide: 5
+```
+
+If the function has **more than one statement**, use `{}` and `return`:
+
+```javascript
+const greet = (name) => {
+    let message = `Hello, ${name}!`;
+    return message;
+};
+
+console.log(greet("Alex"));
+```
+
+---
+
+# 7️⃣ Default Parameters
+
+You can assign **default values** to parameters:
+
+```javascript
+function greet(name = "Guest") {
+    console.log(`Hello, ${name}!`);
+}
+
+greet("John");
+greet(); // Uses default
+```
+
+📌 Output:
+
+```
+Hello, John!
+Hello, Guest!
+```
+
+---
+
+# 8️⃣ Real-Time Example: Calculate Area of a Rectangle
+
+```javascript
+function calculateArea(length, width) {
+    return length * width;
+}
+
+let area1 = calculateArea(5, 10);
+let area2 = calculateArea(7, 3);
+
+console.log("Area 1:", area1);
+console.log("Area 2:", area2);
+```
+
+📌 Output:
+
+```
+Area 1: 50
+Area 2: 21
+```
+
+---
+
+# 9️⃣ Function Inside Function (Nested Function)
+
+```javascript
+function outer(a, b) {
+    function inner(x, y) {
+        return x + y;
+    }
+    return inner(a, b) * 2;
+}
+
+console.log(outer(3, 4));
+```
+
+📌 Output:
+
+```
+14
+```
+
+---
+
+# 🔑 Key Points to Remember:
+
+1. Functions are **reusable blocks of code**.
+2. Parameters are **inputs**, return values are **outputs**.
+3. You can declare functions as:
+
+   * Function Declaration
+   * Function Expression
+   * Arrow Function
+4. Use **default parameters** to handle missing inputs.
+5. Functions can be **nested** inside other functions.
