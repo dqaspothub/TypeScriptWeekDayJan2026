@@ -89,6 +89,7 @@ let outputSubstring1 =courseName.substring(5,3)
 let outputSubstring2 =courseName.substring(5,-3)
 console.log(outputSubstring1);
 console.log(outputSubstring2);
+
 /* 
 Note :
 
@@ -99,27 +100,8 @@ Note :
 
 //String Reversal
 
-let companyName1="dqaspothub"
-
-//Output :"buhtopsaqd"
-
-function reversString(){
-let chars = companyName1.split("");
-console.log(chars);
-
-let reversed="";
-
-for (let index = chars.length-1; index >= 0; index--) {
-    reversed=reversed+chars[index];
-   }
-return reversed;
-
-}
-console.log(reversString());
-
-
-
 let originalString = "dqaspothub";
 
 let reverse = originalString.split("").reverse().join("");
 console.log(reverse);
+

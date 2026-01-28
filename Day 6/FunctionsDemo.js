@@ -28,6 +28,7 @@ const multiply = function(x, y) {
 };
 console.log("Multiply 4 * 5 =", multiply(4, 5));
 
+
 // 5️⃣ Arrow Function
 const divide = (a, b) => a / b;
 console.log("Divide 20 / 4 =", divide(20, 4));
@@ -45,6 +46,11 @@ function welcomeUser(name = "Guest") {
 }
 welcomeUser("Sarah");
 welcomeUser(); // Uses default
+
+function countryOptions (CountryCheck ="US"){
+    console.log("The selected Country " +countryOptions )
+}
+
 
 // 7️⃣ Nested Function
 function outerFunction(a, b) {

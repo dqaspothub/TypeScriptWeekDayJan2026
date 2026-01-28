@@ -39,7 +39,9 @@ Conditional (Ternary) Operator
 
 Shortcut for if-else.
 
-Syntax: condition ? value1 : value2;
+Syntax: 
+
+let varibale = condition ? value1 : value2;
 
 Example:
 let age = 20;
