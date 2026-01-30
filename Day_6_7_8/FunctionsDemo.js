@@ -28,17 +28,22 @@ const multiply = function(x, y) {
 };
 console.log("Multiply 4 * 5 =", multiply(4, 5));
 
-
 // 5️⃣ Arrow Function
 const divide = (a, b) => a / b;
 console.log("Divide 20 / 4 =", divide(20, 4));
+
+const mul = (a1,a2) => a1*a2;
+console.log("The mul value of two number is ", mul(10,2));
 
 // Arrow function with multiple statements
 const greetArrow = (name) => {
     let message = `Hi, ${name}!`;
     return message;
 };
-console.log(greetArrow("Emma"));
+let greetMessage = greetArrow("dqaspothub");
+
+console.log(greetMessage);
+
 
 // 6️⃣ Function with Default Parameters
 function welcomeUser(name = "Guest") {

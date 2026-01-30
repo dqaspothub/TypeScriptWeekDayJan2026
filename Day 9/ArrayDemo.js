@@ -5,6 +5,27 @@
 let fruits = ["Apple", "Banana", "Orange"];
 console.log("\nInitial Array:", fruits);
 
+//1️⃣ Single-Dimensional Array
+
+let mark = [80, 85, 90];
+
+// 2️⃣ Multi-Dimensional Array
+let matrix = [
+    [1, 2],
+    [3, 4]
+];
+
+// 3️⃣ Mixed Data Array
+
+let mixed = [1, "Hello", true, null];
+
+// 4️⃣ Array of Objects
+
+let students = [
+    { name: "Amit", age: 20 },
+    { name: "Riya", age: 22 }
+];
+
 /*-----------------------------------------------
   2. push() – Add element at the end
 ------------------------------------------------*/
@@ -94,7 +115,8 @@ allFruits.forEach((fruit, index) => {
   16. map() – Transform data
 ------------------------------------------------*/
 let prices = [100, 200, 300];
-let gstPrices = prices.map(price => price + price * 0.18);
+
+let gstPrices = prices.map(price =>  price * 10);
 console.log("\nOriginal Prices:", prices);
 console.log("Prices with GST (map):", gstPrices);
 
@@ -102,6 +124,7 @@ console.log("Prices with GST (map):", gstPrices);
   17. filter() – Select data
 ------------------------------------------------*/
 let ages = [12, 18, 25, 15, 30];
+
 let adults = ages.filter(age => age >= 18);
 console.log("\nAdults (filter):", adults);
 
@@ -112,13 +135,9 @@ let totalBill = prices.reduce((sum, price) => sum + price, 0);
 console.log("Total Bill (reduce):", totalBill);
 
 /*-----------------------------------------------
-  19. find()
+  19. find() - Find will provide a single value ( To get the multiple value we can use Filter())
 ------------------------------------------------*/
-let users = [
-  { name: "Rahul", age: 25 },
-  { name: "Anita", age: 17 },
-  { name: "John", age: 30 }
-];
+let users = [{ name: "Rahul", age: 17 },{ name: "Anita", age: 24},{ name: "John", age: 23 },{ name: "Kanna", age: 10 }];
 
 let firstAdult = users.find(user => user.age >= 18);
 console.log("\nFirst Adult (find):", firstAdult);

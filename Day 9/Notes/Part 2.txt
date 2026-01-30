@@ -1,0 +1,152 @@
+map() – “Change EVERY item”
+❓ What does map() do?
+
+Takes each element
+
+Performs an operation
+
+Returns a NEW array
+
+Same length as original
+
+🔁 Mental Model
+
+👉 “For every element, give me a modified version.”
+
+let doubled = numbers.map(function(num) {
+    return num * 2;
+});
+
+console.log(doubled);
+
+✔ Use map() when you want to transform data
+
+-------------------------------------
+
+filter() – “Keep ONLY what matches”
+❓ What does filter() do?
+
+Checks each element
+
+Returns only elements that satisfy a condition
+
+Output array may be smaller
+
+🔁 Mental Model
+
+👉 “Pick only the items I want.”
+
+let evens = numbers.filter(function(num) {
+    return num % 2 === 0;
+});
+
+console.log(evens);
+
+✔ Use filter() to remove unwanted data
+
+--------------------------------------------
+
+
+reduce() – “Combine EVERYTHING into ONE value”
+❓ What does reduce() do?
+
+Processes all elements
+
+Produces ONE final value
+
+Uses an accumulator
+
+🔁 Mental Model
+
+👉 “Reduce many values into one.”
+
+🧪 Example 3: Sum of all numbers
+let sum = numbers.reduce(function(total, num) {
+    return total + num;
+}, 0);
+
+console.log(sum);
+
+✔ Use reduce() for:
+
+Sum
+Average
+Counting
+Merging data
+
+-----------------------------------
+
+find() – “Give me the FIRST match”
+❓ What does find() do?
+
+Returns first element that matches condition
+
+Stops searching after first match
+
+Returns value, not array
+
+let result = numbers.find(function(num) {
+    return num > 3;
+});
+
+console.log(result);
+
+✔ Use find() when you need one item
+===============================================
+
+findIndex() – “Where is the FIRST match?”
+❓ What does findIndex() do?
+
+Same as find()
+
+But returns index, not value
+
+🧪 Example 5:
+let index = numbers.findIndex(function(num) {
+    return num > 3;
+});
+
+console.log(index);
+================================================
+every() – “Do ALL elements match?”
+❓ What does every() do?
+
+Checks condition for every element
+
+Returns true or false
+
+🧪 Example 6: Are all numbers positive?
+let allPositive = numbers.every(function(num) {
+    return num > 0;
+});
+
+console.log(allPositive);
+
+
+========================================
+
+some() – “Does AT LEAST ONE match?”
+❓ What does some() do?
+
+Checks if any one element matches
+
+Returns true or false
+
+🧪 Example 7: Is there any even number?
+let hasEven = numbers.some(function(num) {
+    return num % 2 === 0;
+});
+
+console.log(hasEven);
+
+===========================================
+
+| Method        | Returns      | Purpose                 |
+| ------------- | ------------ | ----------------------- |
+| `map()`       | New array    | Transform each element  |
+| `filter()`    | New array    | Select elements         |
+| `reduce()`    | Single value | Combine data            |
+| `find()`      | One value    | First match             |
+| `findIndex()` | Index        | Position of first match |
+| `every()`     | true/false   | All must match          |
+| `some()`      | true/false   | At least one match      |
