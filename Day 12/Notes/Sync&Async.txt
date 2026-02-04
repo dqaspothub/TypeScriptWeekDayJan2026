@@ -1,0 +1,144 @@
+Synchronous vs Asynchronous
+
+What is Synchronous?
+
+Code runs line by line
+Each task waits for the previous one to finish
+This is also called blocking behavior
+
+👉 If one task takes time, everything else stops
+
+Imagine standing in a queue at a bank 🏦
+
+Person 1 finishes → Person 2 starts
+
+No one can move ahead until the current person is done
+
+What is Asynchronous?
+
+Long tasks run in background
+JavaScript does not wait
+Non-blocking behavior
+
+Uses:
+
+setTimeout
+Promises
+async / await
+API calls
+
+Think of ordering food at a restaurant 🍽️
+
+You place order
+While food is prepared, you chat or use phone
+Food arrives later
+
+| Feature         | Synchronous             | Asynchronous                     |
+| --------------- | ----------------------- | -------------------------------- |
+| Execution       | Line by line            | Background execution             |
+| Blocking        | Yes                     | No                               |
+| Waiting         | Mandatory               | Not required                     |
+| Performance     | Slow                    | Faster                           |
+| User Experience | Poor (UI freeze)        | Smooth                           |
+| Examples        | Loops, normal functions | setTimeout, Promise, async/await |
+
+
+A callback function is:
+
+A function that is passed as an argument to another function and executed later, usually after some task is completed.
+
+📌 In JavaScript, functions are first-class citizens, so they can be:
+
+Assigned to variables
+Passed as arguments
+Returned from other functions
+
+
+You order food 🍔
+
+Chef cooks food
+After food is ready, waiter calls you
+
+👉 “Call me after food is ready” = callback
+
+
+
+What is Callback Hell?
+
+Callback Hell happens when:
+
+Multiple asynchronous operations depend on each other
+
+Each callback is nested inside another callback
+
+Code becomes deeply indented, hard to read and maintain
+
+📌 It’s also called:
+
+Pyramid of Doom
+
+Nested callbacks
+
+Scenario: Online Exam Result Process 🎓
+
+Login student
+
+Fetch exam details
+
+Calculate result
+
+Send email notification
+
+Each step must wait for the previous one.
+
+// Callback Hell = Situation in JavaScript where callbacks 
+//                            are nested within other callbacks to the
+//                           degree where the code is difficult to read.
+//                           Old pattern to handle asynchronous functions.
+
+What is a Promise?
+
+A Promise is an object that represents a value that will be available in the future
+– either successfully or with an error.
+
+Scenario: Online Food Order 🍕
+
+You place an order
+
+Restaurant says: “Order accepted”
+
+Later:
+
+Food delivered ✅ → fulfilled
+
+Order cancelled ❌ → rejected
+
+📌 That order slip is a Promise
+
+| State     | Meaning | Real Life         |
+| --------- | ------- | ----------------- |
+| Pending   | Waiting | Food being cooked |
+| Fulfilled | Success | Food delivered    |
+| Rejected  | Failed  | Order cancelled   |
+
+
+What is async / await?
+
+async / await is syntactic sugar built on top of Promises.
+It makes asynchronous code look synchronous, without blocking JavaScript.
+
+Why async / await was needed?
+
+Before async/await:
+
+Callbacks → callback hell
+
+Promises → .then().then().catch() chains (still messy)
+
+👉 async / await gives:
+
+Cleaner code
+
+Better readability
+
+Easier error handling

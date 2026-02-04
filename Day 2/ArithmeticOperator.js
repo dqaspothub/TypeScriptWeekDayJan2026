@@ -1,5 +1,5 @@
 // Declare two numbers
-let a = 10;
+let a = 2;
 let b = 3;
 
 // Arithmetic operations
