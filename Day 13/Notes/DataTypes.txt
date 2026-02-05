@@ -1,0 +1,24 @@
+| Type    | Purpose          |
+| ------- | ---------------- |
+| number  | Numbers          |
+| string  | Text             |
+| boolean | true / false     |
+| array   | List of values   |
+| tuple   | Fixed array      |
+| any     | Disable checking |
+| unknown | Safe any         |
+| union   | Multiple types   |
+| enum    | Constants        |
+| void    | No return        |
+| never   | Never ends       |
+
+
+In **TypeScript**, data types tell the compiler **what kind of value a variable can store**.
+This helps:
+
+* Catch errors **before runtime**
+* Improve **code readability**
+* Give better **autocomplete & IntelliSense**
+
+👉 TypeScript is **JavaScript + Types**
+

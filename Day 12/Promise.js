@@ -1,3 +1,64 @@
+const promise = new Promise((resolve, reject) => {
+  // async operation
+});
+
+
+const myPromise = new Promise((resolve, reject) => {
+  const success = true;
+
+  if (success) {
+    resolve("Operation successful");
+  } else {
+    reject("Operation failed");
+  }
+});
+
+
+myPromise
+  .then(result => {
+    console.log(result);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+  //////////////////////Promise chaining (multiple async steps)////////////////////////////
+
+  function placeOrder() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve("Order placed"), 1000);
+  });
+}
+
+function makePayment() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve("Payment done"), 1000);
+  });
+}
+
+placeOrder()
+  .then(result => {
+    console.log(result);
+    return makePayment(); // return another promise
+  })
+  .then(paymentResult => {
+    console.log(paymentResult);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////
+
 let orderFood = new Promise((resolve, reject) => {
   let foodReady = true;
 
@@ -19,9 +80,6 @@ orderFood
 
 
   ////////////////////////////////////
-
-  // Asynchronous chores using callbacks
-
 
   // Asynchronous chores using callbacks
 

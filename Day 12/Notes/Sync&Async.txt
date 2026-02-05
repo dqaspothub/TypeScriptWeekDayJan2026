@@ -104,7 +104,6 @@ A Promise is an object that represents a value that will be available in the fut
 Scenario: Online Food Order 🍕
 
 You place an order
-
 Restaurant says: “Order accepted”
 
 Later:
