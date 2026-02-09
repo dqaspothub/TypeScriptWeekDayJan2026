@@ -3,6 +3,7 @@
  *************************************************/
 
 // 1️⃣ Primitive Types
+
 let age: number = 25;
 let username: string = "Rahul";
 let isLoggedIn: boolean = true;
@@ -12,7 +13,7 @@ console.log("Username:", username);
 console.log("Is Logged In:", isLoggedIn);
 
 // 2️⃣ Null & Undefined
-let middleName: string | null = null;
+let middleName: null = null;
 let address: undefined = undefined;
 
 console.log("Middle Name:", middleName);
@@ -22,21 +23,19 @@ console.log("Address:", address);
 let largeNumber: bigint = 9876543210123456789n;
 console.log("BigInt Value:", largeNumber);
 
-// 4️⃣ Symbol
-let sym1: symbol = Symbol("id");
-let sym2: symbol = Symbol("id");
-console.log("Symbols equal?", sym1 === sym2);
-
-// 5️⃣ Array
+// 4️⃣  Array
 let marks: number[] = [85, 90, 95];
-let subjects: Array<string> = ["Math", "Science", "English"];
+let studentName : String[] = ["Kannathasan","Harish","Tharani"];
 
 console.log("Marks:", marks);
-console.log("Subjects:", subjects);
+console.log("Student Name:", studentName);
 
-// 6️⃣ Tuple
+// 5️⃣ Tuple
 let student: [number, string, boolean] = [101, "Amit", true];
+let courses: [string, string, number] = ["Java","8 Weeks",8000];
+
 console.log("Student Tuple:", student);
+console.log("Student Tuple:", courses);
 
 // 7️⃣ Object
 let employee: {
@@ -48,6 +47,8 @@ let employee: {
   name: "Neha",
   salary: 50000
 };
+
+
 
 console.log("Employee:", employee);
 
@@ -67,13 +68,14 @@ if (typeof userInput === "string") {
 // 🔟 Union Type
 let userId: number | string;
 userId = 101;
-userId = "EMP101";
+userId = "103";
 console.log("User ID:", userId);
 
 // 1️⃣1️⃣ Literal Type
 let status: "success" | "error" | "loading";
 status = "success";
 console.log("Status:", status);
+
 
 // 1️⃣2️⃣ Enum
 enum Role {
@@ -89,31 +91,24 @@ console.log("User Role:", userRole);
 type User = {
   id: number;
   name: string;
-  role: Role;
+  role: string;
 };
 
 let user1: User = {
   id: 1,
   name: "Arjun",
-  role: Role.User
+  role: "Admin"
+};
+
+let user2: User = {
+  id: 2,
+  name: "Kannathasan",
+  role: "Guest"
 };
 
 console.log("User1:", user1);
+console.log("User2:", user2);
 
-// 1️⃣4️⃣ Interface
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
-
-let product: Product = {
-  id: 101,
-  name: "Laptop",
-  price: 55000
-};
-
-console.log("Product:", product);
 
 // 1️⃣5️⃣ Function with Types
 function add(a: number, b: number): number {
