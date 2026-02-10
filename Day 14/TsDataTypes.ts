@@ -80,7 +80,6 @@ Math.round(u); // Error: Argument of type 'boolean' is not assignable to paramet
 
 //Example with any
 
-
 let v: any = true;
 v = "string"; // no error as it can be "any" type
 Math.round(v); // no error as it can be "any" type

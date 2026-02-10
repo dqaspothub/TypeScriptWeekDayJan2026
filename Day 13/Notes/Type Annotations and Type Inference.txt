@@ -1,0 +1,38 @@
+Type Annotations and Type Inference
+
+Type Annotation
+
+Explicitly telling TypeScript what type a variable should have.
+
+let age: number = 25;
+let username: string = "Kumar";
+let isLoggedIn: boolean = true;
+
+Function Annotation
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+Type Inference
+
+TypeScript automatically detects the type based on the assigned value.
+
+let city = "Chennai"; // inferred as string
+let count = 10;      // inferred as number
+
+
+❌ This will cause an error:
+
+city = 123; // Error
+
+
+function multiply(a: number, b: number) {
+  return a * b; // inferred return type: number
+}
+
+
+When to Use What?
+
+Use inference → simple variables
+
+Use annotations → functions, APIs, complex logic

@@ -87,7 +87,33 @@ enum Role {
 let userRole: Role = Role.Admin;
 console.log("User Role:", userRole);
 
+enum StatusCode {
+  Success = 200,
+  NotFound = 404,
+  ServerError = 500
+}
+
+let response: StatusCode = StatusCode.Success;
+
+enum PaymentMode {
+  Cash = "CASH",
+  Card = "CARD",
+  UPI = "UPI"
+}
+
+function pay(mode: PaymentMode) {
+  console.log("Payment using", mode);
+}
+
+
 // 1️⃣3️⃣ Type Alias
+
+type Username = string;
+
+let userName: Username = "John";
+
+//let userName: String = "kananthasan";
+
 type User = {
   id: number;
   name: string;

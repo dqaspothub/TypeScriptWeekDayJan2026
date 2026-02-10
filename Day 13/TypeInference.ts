@@ -21,3 +21,7 @@ And Type Inference lets TypeScript do that without extra code.
 
 */
 
+
+let firstName : String = "Kannathasan";
+let firstNames = "Kannathasan";
+
