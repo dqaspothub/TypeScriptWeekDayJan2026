@@ -1,0 +1,261 @@
+# ✅ Constructor Rules in TypeScript
+
+## 1️⃣ Constructor name must be `constructor`
+
+class Test {
+    constructor() {
+        console.log("Constructor called");
+    }
+}
+
+❌ You **cannot** rename it.
+
+## 2️⃣ Constructor is automatically invoked
+
+let obj = new Test(); // constructor runs automatically
+
+✔ You **cannot call constructor manually**.
+
+## 3️⃣ Only ONE constructor per class
+
+class Demo {
+    constructor() {}
+    // constructor(a:number) {} ❌ Not allowed
+}
+
+❌ Multiple constructors are NOT supported.
+
+## 4️⃣ Constructor can have parameters
+
+class User {
+    constructor(name: string, age: number) {}
+}
+
+✔ Used to pass initial values.
+
+## 5️⃣ Constructor can use access modifiers
+
+class Person {
+    constructor(
+        public name: string,
+        private age: number
+    ) {}
+}
+
+✔ Automatically creates & initializes properties.
+
+
+## 6️⃣ Constructor does NOT have a return type
+
+constructor(): void {}  // ❌ Not allowed
+
+
+✔ Constructor always returns the object instance implicitly.
+
+
+## 7️⃣ Constructor runs only once per object
+
+
+let a = new Test();
+let b = new Test();
+
+✔ Runs once for each object creation.
+
+
+## 8️⃣ If no constructor is written, TypeScript provides a default one
+
+
+class Sample {
+}
+
+Internally:
+
+constructor() {}
+
+## 9️⃣ In inheritance, `super()` must be called first
+
+class Parent {
+    constructor() {}
+}
+
+class Child extends Parent {
+    constructor() {
+        super(); // mandatory
+    }
+}
+
+❌ Using `this` before `super()` causes error.
+
+
+## 10️⃣ Constructor cannot be static
+
+
+static constructor() {} // ❌ Invalid
+
+✔ Constructors belong to instances, not class.
+
+# ✅ Different Types of Constructors in TypeScript
+
+TypeScript doesn’t officially name constructor “types”, but **conceptually**, we classify them like this 👇
+
+## 1️⃣ Default Constructor
+
+A constructor **without parameters**.
+
+class Car {
+    constructor() {
+        console.log("Car object created");
+    }
+}
+
+let c1 = new Car();
+
+### Use case:
+
+✔ When no initial data is required.
+
+## 2️⃣ Parameterized Constructor (Most Used ⭐)
+
+A constructor **with parameters**.
+
+class Employee {
+    constructor(public id: number, public name: string) {}
+}
+
+let e1 = new Employee(101, "Arun");
+
+### Use case:
+
+✔ When mandatory data must be provided.
+
+
+## 3️⃣ Constructor with Default Values
+
+class Product {
+    constructor(
+        public name: string,
+        public price: number = 500
+    ) {}
+}
+
+let p1 = new Product("Mouse");
+let p2 = new Product("Tv",51000);
+
+
+### Use case:
+
+✔ When some values are optional.
+
+## 4️⃣ Optional Parameter Constructor
+
+
+class Student {
+    constructor(
+        public name: string,
+        public age?: number
+    ) {}
+}
+
+new Student("Ravi");
+new Student("Ravi", 21);
+
+
+### Use case:
+
+✔ Flexible object creation.
+
+
+## 5️⃣ Constructor with Access Modifiers (Shorthand Constructor ⭐)
+
+class User {
+    constructor(
+        public username: string,
+        private password: string,
+        readonly role: string
+    ) {}
+}
+
+### Use case:
+
+✔ Clean, concise, production-ready code.
+
+## 6️⃣ Constructor in Inheritance (Parent–Child)
+
+class Animal {
+    constructor(public name: string) {}
+}
+
+class Dog extends Animal {
+    constructor(name: string, public breed: string) {
+        super(name);
+    }
+}
+
+let d1 = new Dog("Buddy", "Labrador");
+
+### Use case:
+
+✔ Code reuse in OOPS design.
+
+
+## 7️⃣ Simulated Multiple Constructors (Using Optional Params)
+
+class Order {
+    constructor(
+        public orderId: number,
+        public amount?: number
+    ) {}
+}
+
+✔ Used instead of overloaded constructors.
+
+## 8️⃣ Private Constructor (Singleton Pattern)
+
+
+class Database {
+    private static instance: Database;
+
+    private constructor() {}
+
+    static getInstance() {
+        if (!Database.instance) {
+            Database.instance = new Database();
+        }
+        return Database.instance;
+    }
+}
+
+let db1 = Database.getInstance();
+
+### Use case:
+
+✔ Prevents multiple object creation.
+
+## 9️⃣ Protected Constructor
+
+class Base {
+    protected constructor() {}
+}
+
+class Derived extends Base {
+    constructor() {
+        super();
+    }
+}
+
+✔ Cannot instantiate base class directly.
+
+# 🧠 Quick Interview Table
+
+| Type            | Purpose                  |
+| --------------- | ------------------------ |
+| Default         | Basic object creation    |
+| Parameterized   | Mandatory initialization |
+| Default Value   | Optional initialization  |
+| Optional Params | Flexible usage           |
+| Shorthand       | Less boilerplate         |
+| Inheritance     | Parent–child setup       |
+| Private         | Singleton pattern        |
+| Protected       | Controlled inheritance   |
+
+---
