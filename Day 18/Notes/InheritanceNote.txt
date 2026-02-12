@@ -1,0 +1,324 @@
+Sure 👍 Let’s understand **Inheritance in TypeScript** in a very simple (layman) way and then move step-by-step into technical explanation with examples.
+
+---
+
+# 🔷 1. What is Inheritance? (Layman Explanation)
+
+Imagine 👇
+
+👉 A **Parent** has some common properties:
+
+* Eye color
+* Height
+* Family name
+
+👉 A **Child** automatically gets these properties from the parent.
+
+In programming:
+
+* **Parent class** → Base class / Super class
+* **Child class** → Derived class / Sub class
+
+💡 Inheritance means:
+
+> One class can reuse properties and methods of another class.
+
+This helps us:
+
+* Avoid repeating code
+* Reuse logic
+* Maintain clean structure
+
+---
+
+# 🔷 2. Why Do We Need Inheritance?
+
+Without inheritance ❌
+We repeat the same code again and again.
+
+With inheritance ✅
+We write common code once and reuse it everywhere.
+
+---
+
+# 🔷 3. Basic Syntax of Inheritance in TypeScript
+
+In TypeScript, we use the keyword:
+
+```
+extends
+```
+
+### Syntax:
+
+```typescript
+class Parent {
+   // properties and methods
+}
+
+class Child extends Parent {
+   // additional properties and methods
+}
+```
+
+---
+
+# 🔷 4. Simple Real-Life Example (Easy Understanding)
+
+Let’s take an example of **Vehicle** 🚗
+
+All vehicles have:
+
+* brand
+* start()
+
+So we create a Parent class.
+
+Then:
+
+* Car
+* Bike
+
+They inherit from Vehicle.
+
+---
+
+# 🔷 5. Basic Example Program
+
+```typescript
+// Parent Class
+class Vehicle {
+    brand: string;
+
+    constructor(brand: string) {
+        this.brand = brand;
+    }
+
+    start(): void {
+        console.log(this.brand + " vehicle is starting...");
+    }
+}
+
+// Child Class
+class Car extends Vehicle {
+    doors: number;
+
+    constructor(brand: string, doors: number) {
+        super(brand); // Calling parent constructor
+        this.doors = doors;
+    }
+
+    showDetails(): void {
+        console.log("Brand: " + this.brand);
+        console.log("Doors: " + this.doors);
+    }
+}
+
+// Creating Object
+let myCar = new Car("Toyota", 4);
+
+myCar.start();        // Inherited method
+myCar.showDetails();  // Child method
+```
+
+---
+
+# 🔷 6. Important Concept: super()
+
+When a child class has a constructor,
+it **must call parent constructor** using:
+
+```typescript
+super()
+```
+
+👉 Why?
+
+Because the parent class needs to initialize its properties first.
+
+Example:
+
+```typescript
+super(brand);
+```
+
+This sends value to parent constructor.
+
+---
+
+# 🔷 7. How It Works Internally
+
+Step-by-step:
+
+1. `Car` extends `Vehicle`
+2. Car automatically gets:
+
+   * brand property
+   * start() method
+3. Car adds its own:
+
+   * doors property
+   * showDetails() method
+4. When we create `new Car()`
+
+   * Parent constructor runs first (via super)
+   * Then child constructor runs
+
+---
+
+# 🔷 8. Method Overriding in Inheritance
+
+Child class can change parent method behavior.
+
+Example:
+
+```typescript
+class Animal {
+    makeSound(): void {
+        console.log("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    makeSound(): void {
+        console.log("Dog barks");
+    }
+}
+
+let d = new Dog();
+d.makeSound();  // Dog barks
+```
+
+This is called:
+👉 **Method Overriding**
+
+---
+
+# 🔷 9. Types of Inheritance in TypeScript
+
+TypeScript supports:
+
+### 1️⃣ Single Inheritance
+
+One child from one parent
+
+```
+Animal → Dog
+```
+
+### 2️⃣ Multilevel Inheritance
+
+```
+Animal → Mammal → Dog
+```
+
+Example:
+
+```typescript
+class Animal {
+    eat() {
+        console.log("Eating...");
+    }
+}
+
+class Mammal extends Animal {
+    walk() {
+        console.log("Walking...");
+    }
+}
+
+class Dog extends Mammal {
+    bark() {
+        console.log("Barking...");
+    }
+}
+
+let dog = new Dog();
+dog.eat();
+dog.walk();
+dog.bark();
+```
+
+---
+
+# 🔷 10. Access Modifiers and Inheritance
+
+Access modifiers control visibility:
+
+| Modifier  | Accessible in Child? | Accessible Outside? |
+| --------- | -------------------- | ------------------- |
+| public    | ✅ Yes                | ✅ Yes               |
+| protected | ✅ Yes                | ❌ No                |
+| private   | ❌ No                 | ❌ No                |
+
+Example:
+
+```typescript
+class Person {
+    protected name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+
+class Student extends Person {
+    display() {
+        console.log(this.name); // Accessible because protected
+    }
+}
+```
+
+---
+
+# 🔷 11. Real-Time IT Example (Employee System)
+
+```typescript
+class Employee {
+    name: string;
+    salary: number;
+
+    constructor(name: string, salary: number) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    getDetails(): void {
+        console.log("Name: " + this.name);
+        console.log("Salary: " + this.salary);
+    }
+}
+
+class Manager extends Employee {
+    department: string;
+
+    constructor(name: string, salary: number, department: string) {
+        super(name, salary);
+        this.department = department;
+    }
+
+    getDetails(): void {
+        super.getDetails();
+        console.log("Department: " + this.department);
+    }
+}
+
+let mgr = new Manager("Ravi", 80000, "IT");
+mgr.getDetails();
+```
+
+---
+
+# 🔷 12. Key Points to Remember
+
+✅ Use `extends` for inheritance
+✅ Use `super()` to call parent constructor
+✅ Child can access:
+
+* public
+* protected
+  ❌ Child cannot access private members
+  ✅ Method overriding is allowed
+  ❌ Multiple inheritance (like Java) is NOT supported in TypeScript classes
+
+---
