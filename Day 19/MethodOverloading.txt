@@ -1,0 +1,17 @@
+Think about a person named Ravi.
+
+Ravi can be contacted in different ways:
+
+Call with phone number
+
+Call with WhatsApp
+
+Call with email
+
+The action is the same → contact()
+But the input is different.
+
+That is method overloading.
+
+Same method name
+Different parameters

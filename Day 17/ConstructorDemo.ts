@@ -9,9 +9,6 @@
  3. Automatically called when object is created
  4. No return type
  5. Supports parameters, default values, optional params
- 6. Access modifiers in constructor
- 7. Inheritance with super()
- 8. Private & Protected constructors
 **************************************************/
 
 // 1️⃣ DEFAULT CONSTRUCTOR
@@ -56,83 +53,33 @@ console.log(p1, p2);
 
 
 // 4️⃣ OPTIONAL PARAMETER CONSTRUCTOR
-class Student {
+class CollegeStudent {
     constructor(
         public name: string,
         public age?: number
     ) {}
 }
 
-const s1 = new Student("Ravi");
-const s2 = new Student("Ravi", 22);
+const s1 = new CollegeStudent("Ravi");
+const s2 = new CollegeStudent("Ravi", 22);
 console.log(s1, s2);
 
 
-// 5️⃣ INHERITANCE + super()
-class Animal {
-    constructor(public name: string) {
-        console.log("Animal constructor called");
-    }
-}
+//The other way 
 
-class Dog extends Animal {
-    constructor(name: string, public breed: string) {
-        super(name); // mandatory
-        console.log("Dog constructor called");
-    }
-}
+class NewEmployee {
 
-const d1 = new Dog("Buddy", "Labrador");
-console.log(d1);
-
-
-// 6️⃣ PROTECTED CONSTRUCTOR
-class BaseUser {
-    protected constructor(public role: string) {}
-}
-
-class Admin extends BaseUser {
-    constructor() {
-        super("Admin");
-    }
-}
-
-const admin = new Admin();
-console.log(admin);
-
-
-// 7️⃣ PRIVATE CONSTRUCTOR (SINGLETON PATTERN)
-class Database {
-    private static instance: Database;
-
-    private constructor() {
-        console.log("Database connected");
+        id: number;
+         name: string;
+         salary: number;
+         
+    constructor(id: number,name: string, salary: number) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
     }
 
-    static getInstance(): Database {
-        if (!Database.instance) {
-            Database.instance = new Database();
-        }
-        return Database.instance;
+    getSalary() {
+        return this.salary;
     }
 }
-
-const db1 = Database.getInstance();
-const db2 = Database.getInstance();
-
-console.log(db1 === db2); // true
-
-
-// 8️⃣ NO CONSTRUCTOR (DEFAULT PROVIDED BY TYPESCRIPT)
-class Utility {
-    static add(a: number, b: number) {
-        return a + b;
-    }
-}
-
-console.log(Utility.add(10, 20));
-
-
-/*************************************************
- * END OF DEMO
- *************************************************/
