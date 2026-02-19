@@ -1,0 +1,120 @@
+What is Abstraction in TypeScript?
+
+Abstraction is an OOP concept where we show only essential features of an object and hide the internal implementation details.
+
+👉 In simple words:
+
+You know what something does, but not how it does it internally.
+
+🔶 Real-Life Example
+
+Think about an ATM Machine 🏧
+
+You insert card
+Enter PIN
+Withdraw money
+
+You don’t know:
+
+How it connects to bank servers
+How it verifies balance
+How transaction is processed internally
+That hidden internal logic = Abstraction
+
+How Abstraction is Achieved in TypeScript?
+
+In TypeScript, abstraction is achieved using:
+
+Abstract Class
+Interface
+
+
+Abstraction Using Abstract Class
+
+An abstract class: Cannot create object directly
+
+Can contain:
+Abstract methods (without body)
+Normal methods (with body)
+Properties
+Constructors
+
+Syntax:
+
+abstract class ClassName {
+    abstract methodName(): void;   // no body
+
+    normalMethod(): void {
+        console.log("This is normal method");
+    }
+}
+
+Rules of Abstract Class
+
+| #  | Rule                                            | Explanation                              | Example                                   |
+| -- | ----------------------------------------------- | ---------------------------------------- | ----------------------------------------- |
+| 1  | Cannot create object                            | You cannot instantiate an abstract class | `new Payment()` ❌                         |
+| 2  | Must use `abstract` keyword                     | Class must be declared with `abstract`   | `abstract class Payment {}`               |
+| 3  | Can contain abstract methods                    | Methods without body                     | `abstract pay(): void;`                   |
+| 4  | Abstract method must not have body              | No `{}` allowed                          | ❌ `abstract pay() {}`                     |
+| 5  | Child class must implement all abstract methods | Otherwise error                          | `class Card extends Payment { pay() {} }` |
+| 6  | Can contain normal methods                      | Methods with body allowed                | `print() {}`                              |
+| 7  | Can have constructor                            | Yes, allowed                             | `constructor(amount:number){}`            |
+| 8  | Can have variables                              | Properties allowed                       | `amount:number;`                          |
+| 9  | Can use access modifiers                        | public, private, protected allowed       | `protected amount:number;`                |
+| 10 | Can extend only one class                       | No multiple inheritance                  | `class A extends B`                       |
+
+abstract class Payment {
+
+    protected amount: number;  // Rule 9
+
+    constructor(amount: number) {   // Rule 7
+        this.amount = amount;
+    }
+
+    abstract makePayment(): void;   // Rule 3 & 4
+
+    printReceipt(): void {          // Rule 6
+        console.log(`Paid ${this.amount}`);
+    }
+}
+
+class CardPayment extends Payment {
+
+    makePayment(): void {           // Rule 5
+        console.log("Payment via Card");
+    }
+}
+
+let p = new CardPayment(1000);
+// let p2 = new Payment(1000); ❌ Rule 1
+
+
+Rules of Interface (100% Abstraction)
+
+| # | Rule                              | Explanation         | Example |
+| - | --------------------------------- | ------------------- | ------- |
+| 1 | Cannot create object              | `new Vehicle()` ❌   |         |
+| 2 | Cannot have constructor           | Not allowed         |         |
+| 3 | Only method signature             | No method body      |         |
+| 4 | All methods are public by default | No access modifiers |         |
+| 5 | Supports multiple inheritance     | `extends A, B`      |         |
+| 6 | Class must implement all methods  | Otherwise error     |         |
+| 7 | Can extend another interface      | Yes                 |         |
+| 8 | Used to define structure          | Blueprint only      |         |
+
+
+interface Vehicle {
+    start(): void;
+    stop(): void;
+}
+
+class Car implements Vehicle {
+    start(): void {
+        console.log("Car started");
+    }
+
+    stop(): void {
+        console.log("Car stopped");
+    }
+}

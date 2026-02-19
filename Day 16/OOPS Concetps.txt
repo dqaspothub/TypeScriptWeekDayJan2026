@@ -1,0 +1,92 @@
+Class
+Object
+Encapsulation
+Inheritance
+Polymorphism
+Abstraction
+
+A class is like a blueprint or design.
+
+A design template to build an Object example mould to make water bottle it has properties example car making stuff
+
+It has Properties and Methods 
+
+📌 Example:
+
+House plan = Class
+Actual house = Object
+
+Class does not occupy memory by itself.
+
+class Student{
+
+//Properties
+
+//Methods
+
+}
+
+//To call this class we can access via object
+
+let variableName (refernceVariable) = new ClassName()
+
+Object – Real Instance of a Class
+
+An object is the real thing created from the blueprint.
+
+📌 Example:
+
+Class = Student
+
+Object = Ravi, Anita, John
+Object occupies memory.
+
+
+Encapsulation – Data Hiding
+Layman Understanding
+
+Encapsulation:
+
+Wrap data + methods together and protect sensitive data
+
+📌 Real life:
+
+ATM Card
+
+You cannot access balance directly
+You must use PIN & methods
+
+
+Inheritance – Parent → Child Relationship
+
+Inheritance means:
+
+Child class uses properties of parent class
+
+📌 Real life:
+
+Parent → Vehicle
+Child → Car, Bike
+Child reuses parent code.
+
+Polymorphism – One Thing, Many Forms
+
+Same method name, different behavior
+
+📌 Real life:
+
+Same word “talk”
+Human talks
+Dog barks
+Baby cries
+
+Abstraction – Show What, Hide How
+
+Abstraction means:
+
+Show only necessary details, hide internal logic
+
+📌 Real life:
+
+You use TV remote
+You don’t know how signals work internally
