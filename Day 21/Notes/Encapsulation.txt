@@ -1,0 +1,42 @@
+What is Encapsulation?
+
+Encapsulation is the OOP principle of:
+
+Bundling data (variables) and methods (functions) together inside a class and restricting direct access to some of the object’s components.
+
+In simple words:
+
+Hide internal details
+
+Expose only what is necessary
+
+Protect data from accidental modification
+
+🎯 2. Why Do We Need Encapsulation?
+
+Without encapsulation:
+
+Anyone can modify variables directly
+
+No control over validation
+
+Hard to maintain code
+
+Data integrity can break
+
+With encapsulation:
+
+Data is protected
+
+Validation can be enforced
+
+Code becomes secure and maintainable
+
+
+| Rule | Explanation                            |
+| ---- | -------------------------------------- |
+| 1    | Use `private` for sensitive data       |
+| 2    | Provide public methods to access data  |
+| 3    | Validate inside setter methods         |
+| 4    | Do not expose internal implementation  |
+| 5    | Keep data and related methods together |

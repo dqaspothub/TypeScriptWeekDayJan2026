@@ -1,0 +1,137 @@
+| Access Specifier | Same Class | Child Class | Outside Class |
+| ---------------- | ---------- | ----------- | ------------- |
+| `public`         | ✅ Yes      | ✅ Yes       | ✅ Yes         |
+| `private`        | ✅ Yes      | ❌ No        | ❌ No          |
+| `protected`      | ✅ Yes      | ✅ Yes       | ❌ No          |
+
+public (Default Access)
+
+If you don’t mention anything, it is public by default.
+
+class Student {
+    public name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    public getName(): string {
+        return this.name;
+    }
+}
+
+const s = new Student("John");
+console.log(s.name);        // ✅ Allowed
+console.log(s.getName());   // ✅ Allowed
+
+✔ Characteristics:
+
+Accessible everywhere
+
+No restriction
+
+Default modifier in TypeScript
+
+private (Most Important for Encapsulation)
+
+private members:
+
+Accessible only inside the same class
+
+Not accessible in child class
+
+Not accessible outside
+
+
+class BankAccount {
+    private balance: number;
+
+    constructor(balance: number) {
+        this.balance = balance;
+    }
+
+    public deposit(amount: number) {
+        this.balance += amount;
+    }
+
+    public getBalance(): number {
+        return this.balance;
+    }
+}
+
+const account = new BankAccount(1000);
+
+account.deposit(500);         // ✅ Allowed
+console.log(account.getBalance()); // ✅ Allowed
+
+// console.log(account.balance); ❌ Error
+
+❌ This Will Fail:
+account.balance = 5000;  // Property 'balance' is private
+
+✔ Why Use private?
+
+Protect sensitive data
+
+Enforce validation
+
+Prevent accidental modification
+
+protected (Used in Inheritance)
+
+protected is like private but:
+
+Accessible inside class
+
+Accessible in child class
+
+Not accessible outside
+
+class Person {
+    protected age: number;
+
+    constructor(age: number) {
+        this.age = age;
+    }
+}
+
+class Employee extends Person {
+
+    public getAge(): number {
+        return this.age;  // ✅ Accessible in child class
+    }
+}
+
+const emp = new Employee(30);
+console.log(emp.getAge()); // ✅ Works
+
+// console.log(emp.age); ❌ Error
+
+
+| Feature               | private       | protected              |
+| --------------------- | ------------- | ---------------------- |
+| Access in same class  | ✅             | ✅                      |
+| Access in child class | ❌             | ✅                      |
+| Access outside class  | ❌             | ❌                      |
+| Mainly used for       | Strict hiding | Controlled inheritance |
+
+
+Rules of Access Specifiers
+
+Default modifier is public
+
+You cannot access private outside class
+
+protected works only with inheritance
+
+Access modifiers work only inside classes
+
+Interfaces cannot have private or protected
+
+Constructors can have access modifiers
+
+| Modifier  | Purpose             |
+| --------- | ------------------- |
+| public    | Open access         |
+| private   | Strict data hiding  |
+| protected | Inheritance control |
