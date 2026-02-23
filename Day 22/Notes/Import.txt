@@ -1,0 +1,296 @@
+## ✅ What is `import` in TypeScript?
+
+In **TypeScript**, `import` is used to bring code (variables, functions, classes, interfaces, etc.) from one file (module) into another file.
+
+👉 TypeScript uses **ES Modules (ESM)** syntax.
+
+---
+
+# 🔹 Why Do We Use `import`?
+
+Without `import`, everything would be in a single file 😓
+With `import`:
+
+* Code becomes **modular**
+* Easy to maintain
+* Reusable
+* Clean project structure
+* Better scalability
+
+---
+
+Think of each .ts file like a separate room.
+
+export → Allows something to go outside the room
+
+import → Allows something to come inside the room
+
+# 🔹 Basic Project Structure Example
+
+```
+project/
+│
+├── mathUtils.ts
+├── user.ts
+└── app.ts
+```
+
+---
+
+# 🔹 1️⃣ Named Export & Import (Most Common)
+
+### 📌 Step 1: Export from `mathUtils.ts`
+
+```ts
+// mathUtils.ts
+
+export function add(a: number, b: number): number {
+    return a + b;
+}
+
+export function subtract(a: number, b: number): number {
+    return a - b;
+}
+```
+
+### 📌 Step 2: Import into `app.ts`
+
+```ts
+// app.ts
+
+import { add, subtract } from "./mathUtils";
+
+console.log(add(10, 5));        // 15
+console.log(subtract(10, 5));   // 5
+```
+
+### 🔎 Explanation
+
+| Part                | Meaning            |
+| ------------------- | ------------------ |
+| `{ add, subtract }` | Named imports      |
+| `"./mathUtils"`     | Relative file path |
+| `./`                | Current folder     |
+
+---
+
+# 🔹 2️⃣ Import Everything (`* as` syntax)
+
+```ts
+// app.ts
+
+import * as MathUtils from "./mathUtils";
+
+console.log(MathUtils.add(10, 5));
+console.log(MathUtils.subtract(10, 5));
+```
+
+### ✅ When to Use?
+
+* When importing many functions
+* To avoid naming conflicts
+
+---
+
+# 🔹 3️⃣ Default Export & Import
+
+### 📌 Export (Only ONE default allowed per file)
+
+```ts
+// user.ts
+
+export default class User {
+    constructor(public name: string) {}
+
+    greet() {
+        console.log(`Hello, ${this.name}`);
+    }
+}
+```
+
+### 📌 Import
+
+```ts
+// app.ts
+
+import User from "./user";
+
+const u1 = new User("Arun");
+u1.greet();
+```
+
+### 🔎 Important Rule
+
+* Default import **does NOT use `{}`**
+* You can rename it:
+
+```ts
+import MyUser from "./user";
+```
+
+---
+
+# 🔹 4️⃣ Import with Rename (Alias)
+
+```ts
+import { add as sum } from "./mathUtils";
+
+console.log(sum(5, 3));
+```
+
+👉 Useful when:
+
+* Two modules have same function names
+
+---
+
+# 🔹 5️⃣ Mixed Import (Default + Named)
+
+```ts
+// file.ts
+export default function greet() {
+    console.log("Hello");
+}
+
+export const age = 25;
+```
+
+```ts
+// app.ts
+import greet, { age } from "./file";
+
+greet();
+console.log(age);
+```
+
+---
+
+# 🔹 6️⃣ Import Only Type (TypeScript Feature)
+
+Used when importing interfaces or types.
+
+```ts
+// types.ts
+export interface Employee {
+    id: number;
+    name: string;
+}
+```
+
+```ts
+// app.ts
+import type { Employee } from "./types";
+
+const emp: Employee = {
+    id: 1,
+    name: "Raj"
+};
+```
+
+### ✅ Why `import type`?
+
+* Removes unnecessary JS code during compilation
+* Optimized build output
+
+---
+
+# 🔹 7️⃣ Import from Node Modules
+
+Example:
+
+```ts
+import express from "express";
+```
+
+Here:
+
+* `"express"` comes from `node_modules`
+* No `./` needed
+
+---
+
+# 🔹 Complete Real-World Example (Mini Project)
+
+### 📁 `calculator.ts`
+
+```ts
+export function multiply(a: number, b: number): number {
+    return a * b;
+}
+
+export function divide(a: number, b: number): number {
+    return a / b;
+}
+```
+
+---
+
+### 📁 `employee.ts`
+
+```ts
+export default class Employee {
+    constructor(public name: string, public salary: number) {}
+
+    getDetails() {
+        return `${this.name} earns ${this.salary}`;
+    }
+}
+```
+
+---
+
+### 📁 `app.ts`
+
+```ts
+import Employee from "./employee";
+import { multiply, divide } from "./calculator";
+
+const emp1 = new Employee("Ravi", 50000);
+
+console.log(emp1.getDetails());
+
+console.log("Multiply:", multiply(10, 5));
+console.log("Divide:", divide(20, 4));
+```
+
+---
+
+# 🔹 Summary Table
+
+| Type           | Syntax                        | Example           |
+| -------------- | ----------------------------- | ----------------- |
+| Named Import   | `import { x } from "./file"`  | `{ add }`         |
+| Default Import | `import x from "./file"`      | `User`            |
+| All Import     | `import * as x from "./file"` | `MathUtils.add()` |
+| Rename         | `import { x as y }`           | `add as sum`      |
+| Type Import    | `import type { X }`           | `Employee`        |
+
+---
+
+# 🔥 Important Rules
+
+1. File must have `export` to be imported.
+2. Default export → only one per file.
+3. Named export → multiple allowed.
+4. Use relative path (`./`) for local files.
+5. `.ts` extension is usually not required.
+
+---
+
+# 💡 Common Interview Questions
+
+* Difference between default and named export?
+* Can we have multiple default exports?
+* What happens if we forget `export`?
+* What is `import type`?
+
+---
+
+If you want, I can next explain:
+
+* 👉 How modules work internally
+* 👉 Difference between CommonJS (`require`) and ES Modules
+* 👉 How imports work in Node.js vs Browser
+* 👉 How it works in Playwright (since you work with automation)
+
+Just tell me 👍

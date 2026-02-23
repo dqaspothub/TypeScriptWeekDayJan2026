@@ -1,0 +1,216 @@
+## ✅ What are **Generics** in TypeScript?
+
+**Generics** allow you to create reusable components (functions, classes, interfaces) that work with **different data types** while maintaining **type safety**.
+
+Instead of writing separate code for `number`, `string`, `boolean`, etc., we write **one generic version** that works for all types.
+
+---
+
+# 🎯 Why Do We Need Generics?
+
+Without generics:
+
+* Code duplication happens.
+* We lose type safety if we use `any`.
+* Less readable and maintainable code.
+
+Generics help to:
+
+✔ Reuse code
+✔ Maintain strong typing
+✔ Improve readability
+✔ Avoid using `any`
+✔ Catch errors at compile time
+
+---
+
+# ❌ Problem Without Generics
+
+```typescript
+function identityNumber(value: number): number {
+    return value;
+}
+
+function identityString(value: string): string {
+    return value;
+}
+```
+
+👉 We are repeating the same logic for different types.
+
+---
+
+# ⚠️ Using `any` (Not Recommended)
+
+```typescript
+function identity(value: any): any {
+    return value;
+}
+```
+
+Problem:
+
+```typescript
+let result = identity(10);
+result.toUpperCase();  // ❌ No error at compile time (but wrong!)
+```
+
+`any` removes type safety.
+
+---
+
+# ✅ Solution: Using Generics
+
+```typescript
+function identity<T>(value: T): T {
+    return value;
+}
+```
+
+### Explanation:
+
+* `<T>` → Type parameter (can be any name, but `T` is common)
+* `value: T` → Parameter type
+* `: T` → Return type
+
+---
+
+# 🎯 Usage Example
+
+```typescript
+let num = identity<number>(10);
+let str = identity<string>("Hello");
+
+console.log(num);  // 10
+console.log(str);  // Hello
+```
+
+TypeScript automatically knows:
+
+* `num` is number
+* `str` is string
+
+Even better — TypeScript can infer type:
+
+```typescript
+let num = identity(10);       // T inferred as number
+let str = identity("Hello");  // T inferred as string
+```
+
+---
+
+# 📦 Generic with Arrays
+
+```typescript
+function getFirstElement<T>(arr: T[]): T {
+    return arr[0];
+}
+
+let firstNum = getFirstElement([1, 2, 3]);
+let firstStr = getFirstElement(["a", "b", "c"]);
+```
+
+Here:
+
+* `T[]` → Array of type T
+* Return type → Same type as array element
+
+---
+
+# 🏗 Generic Class Example
+
+```typescript
+class Box<T> {
+    value: T;
+
+    constructor(value: T) {
+        this.value = value;
+    }
+
+    getValue(): T {
+        return this.value;
+    }
+}
+
+let numberBox = new Box<number>(100);
+let stringBox = new Box<string>("TypeScript");
+
+console.log(numberBox.getValue());
+console.log(stringBox.getValue());
+```
+
+---
+
+# 📑 Generic Interface Example
+
+```typescript
+interface ApiResponse<T> {
+    data: T;
+    status: number;
+}
+
+let response: ApiResponse<string> = {
+    data: "Success",
+    status: 200
+};
+
+let userResponse: ApiResponse<{name: string, age: number}> = {
+    data: { name: "John", age: 30 },
+    status: 200
+};
+```
+
+---
+
+# 📌 Rules / Key Points About Generics
+
+1. Generic type is declared inside `< >`
+2. Can use any name (`T`, `K`, `V`, `U`)
+3. Works with:
+
+   * Functions
+   * Classes
+   * Interfaces
+   * Type aliases
+4. Type inference works automatically
+5. Better than using `any`
+
+---
+
+# 🚀 Simple Comparison
+
+| Without Generics        | With Generics       |
+| ----------------------- | ------------------- |
+| Duplicate code          | Reusable code       |
+| Use `any` (unsafe)      | Strong typing       |
+| Runtime errors possible | Compile-time safety |
+| Less maintainable       | Clean & scalable    |
+
+---
+
+# 🎯 One Complete Demo Program
+
+```typescript
+class DataStore<T> {
+    private items: T[] = [];
+
+    addItem(item: T): void {
+        this.items.push(item);
+    }
+
+    getItems(): T[] {
+        return this.items;
+    }
+}
+
+let numberStore = new DataStore<number>();
+numberStore.addItem(10);
+numberStore.addItem(20);
+
+let stringStore = new DataStore<string>();
+stringStore.addItem("Hello");
+stringStore.addItem("World");
+
+console.log(numberStore.getItems());
+console.log(stringStore.getItems());
+```
